@@ -9,3 +9,8 @@ Since the game takes place in the childhood diary,
 all objects in the world are made up of children’s drawings (drawings done by ‘yourself’ as a child). 
 While the room, walls, and other items that aren’t prominent in memories aren’t drawn in, objects that are key to recovering memories are shown as drawings. 
 The player will interact with the drawings in the world and piece together the hints to recover their lost memories. 
+
+## Setup Instructions
+- Clone the project into a repo of your choosing
+- Add the project in Unity Hub
+- Open it with Unity version 2021.3.21f1
