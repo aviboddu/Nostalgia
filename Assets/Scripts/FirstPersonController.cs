@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.Assertions;
 #if ENABLE_INPUT_SYSTEM && STARTER_ASSETS_PACKAGES_CHECKED
 using UnityEngine.InputSystem;
 #endif
@@ -50,6 +51,11 @@ namespace StarterAssets
 		public float TopClamp = 90.0f;
 		[Tooltip("How far in degrees can you move the camera down")]
 		public float BottomClamp = -90.0f;
+
+		[Header("Interaction")]
+		[Tooltip("The maximum distance you can interact with objects from in meters")]
+		public float InteractionMaxDistance = 7.5f;
+		private Interactable currentInteractable;
 
 		// cinemachine
 		private float _cinemachineTargetPitch;
@@ -120,6 +126,53 @@ namespace StarterAssets
 		private void LateUpdate()
 		{
 			CameraRotation();
+			UpdateInteraction();
+			InteractionInput();
+		}
+
+		// Checks if the player has pressed the interact key and adjust accordingly.
+		private void InteractionInput()
+		{
+			if (_input.interact && currentInteractable is not null && currentInteractable.CanInteract())
+			{
+				currentInteractable.OnInteract();
+			}
+		}
+
+		// Updates what interactable object is in focus, if any.
+		private void UpdateInteraction()
+		{
+			RaycastHit hitInfo;
+			if (Physics.Raycast(_mainCamera.transform.position,
+				    _mainCamera.transform.TransformDirection(Vector3.forward), out hitInfo, 
+				    InteractionMaxDistance))
+			{
+				if (hitInfo.collider.gameObject.layer == 10
+				    && (currentInteractable is null 
+				        || hitInfo.collider.gameObject.GetInstanceID() != currentInteractable.gameObject.GetInstanceID()))
+				{
+					if (currentInteractable is not null) // We've gone directly from one interactable to the next
+					{
+						currentInteractable.OnLoseFocus();
+					}
+					
+					hitInfo.collider.TryGetComponent(out currentInteractable);
+
+					Assert.IsNotNull(currentInteractable, "Hit interactable returned null");
+					currentInteractable.OnFocus();
+
+				} else if (currentInteractable is not null
+				           && hitInfo.collider.gameObject.GetInstanceID() != currentInteractable.gameObject.GetInstanceID())
+				{
+					// We've gone from an interactable to a non-interactable
+					currentInteractable.OnLoseFocus();
+					currentInteractable = null;
+				}
+			} else if (currentInteractable is not null) // We've gone from an interactable to nothing
+			{
+				currentInteractable.OnLoseFocus();
+				currentInteractable = null;
+			}
 		}
 
 		private void GroundedCheck()
