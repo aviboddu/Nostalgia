@@ -15,6 +15,7 @@ public class ObjectiveText : MonoBehaviour
     // Called whenever the objective is updated.
     private void UpdateText(int currentObjectiveNumber)
     {
+        StopAllCoroutines();
         StartCoroutine(transitionObjectiveName());
     }
 
