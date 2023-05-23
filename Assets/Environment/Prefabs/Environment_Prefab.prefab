@@ -713,7 +713,7 @@ GameObject:
   - component: {fileID: 5862112767307852598}
   - component: {fileID: 3134216864094107951}
   - component: {fileID: 5999452127023114153}
-  - component: {fileID: 884071722392115697}
+  - component: {fileID: 518732098855196285}
   m_Layer: 0
   m_Name: SampleInteractable2
   m_TagString: Untagged
@@ -799,7 +799,7 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &884071722392115697
+--- !u!114 &518732098855196285
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -808,11 +808,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 9037359530772289709}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d9aaf8ca45fa42d996ad7fdf192eacb9, type: 3}
+  m_Script: {fileID: 11500000, guid: b7f6a0565a445af4da83d8c0ff3bef12, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   lightIntensity: 0.5
   fadeTime: 0.5
+  objectiveNumberToGoTo: 1
 --- !u!1 &9065339783988196015
 GameObject:
   m_ObjectHideFlags: 0
