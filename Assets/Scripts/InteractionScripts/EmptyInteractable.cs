@@ -44,7 +44,7 @@ namespace InteractionScripts
 
         // This coroutine resets interactions after 'time' seconds.
         // Can use this in any other class if you simply want the interactable to have a recovery period.
-        public IEnumerator ResetInteract(float time) 
+        public IEnumerator ResetInteract(float time)
         {
             yield return new WaitForSeconds(time);
             _canInteract = true;
