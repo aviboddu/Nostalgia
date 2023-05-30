@@ -45,7 +45,9 @@ namespace DialogueScripts
                 return;
             }
             string sentence = sentences.Dequeue();
-            textComponent.text = sentence;
+            int continueFontSize = (int)(textComponent.fontSize * 0.8f);
+            string continueText = $"<size={continueFontSize}><color=#FF0000>[press C to continue]</color></size>";     // #FF0000 is red
+            textComponent.text = sentence + "\n" + continueText;
         }
 
         void EndDialogue()
@@ -57,7 +59,7 @@ namespace DialogueScripts
         // Update is called once per frame
         void Update()
         {
-            if (Input.GetMouseButtonDown(0))
+            if (Input.GetKeyDown(KeyCode.C))
             {
                 DisplayNextSentence();
             }
