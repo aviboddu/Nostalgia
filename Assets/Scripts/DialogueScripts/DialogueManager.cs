@@ -7,16 +7,13 @@ namespace DialogueScripts
 {
     public class DialogueManager : MonoBehaviour
     {
+        public static bool isActive;
+        
         public TextMeshProUGUI textComponent;
         public GameObject panel;
-<<<<<<< HEAD
-        private Queue<string> sentences;            // Keep track of all lines in dialogue
-        public static bool isActive;                // Track if any dialogue active
-=======
         public GameObject pause;
         private Queue<string> sentences; // Keep track of all lines in dialogue
         private PauseMenu _pauseMenu;
->>>>>>> ee087b70c75f06568e0d78139a8422cc77901918
 
         // Start is called before the first frame update
         void Start()
@@ -71,12 +68,8 @@ namespace DialogueScripts
         // Fixed Update is not called during pause
         void Update()
         {
-<<<<<<< HEAD
-            if (Input.GetKeyDown(KeyCode.C))      // Ciel: Press "C" to adavance dialogue
-=======
             if (_pauseMenu.IsPaused) return;
-            if (Input.GetKeyDown(KeyCode.C))
->>>>>>> ee087b70c75f06568e0d78139a8422cc77901918
+            if (Input.GetKeyDown(KeyCode.C))      // Ciel: Press "C" to advance dialogue
             {
                 DisplayNextSentence();
             }
