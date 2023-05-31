@@ -69,7 +69,7 @@ namespace DialogueScripts
         void Update()
         {
             if (_pauseMenu.IsPaused) return;
-            if (Input.GetKeyDown(KeyCode.C))
+            if (Input.GetKeyDown(KeyCode.C))      // Ciel: Press "C" to advance dialogue
             {
                 DisplayNextSentence();
             }

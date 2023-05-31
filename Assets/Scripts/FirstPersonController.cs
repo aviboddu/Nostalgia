@@ -137,9 +137,9 @@ namespace StarterAssets
 		private void LateUpdate()
 		{
 			if (_pauseMenu.IsPaused) return;
+            CameraRotation();
             // Ciel: If there is an active dialogue return without updating interaction input
             if (DialogueManager.isActive) return;
-            CameraRotation();
 			UpdateInteraction();
 			InteractionInput();
 		}

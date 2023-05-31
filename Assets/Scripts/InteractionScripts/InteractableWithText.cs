@@ -36,8 +36,6 @@ namespace InteractionScripts
 
             TriggerDialogue();
 
-            // Ciel: To Fix: the coroutine below is called right after first round of TriggerDialogue executes.
-            //       so the interactable may be reset before all texts are displayed!
             StartCoroutine(ResetInteract(3));
         }
 
