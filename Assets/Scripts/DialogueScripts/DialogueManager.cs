@@ -9,7 +9,9 @@ namespace DialogueScripts
     {
         public TextMeshProUGUI textComponent;
         public GameObject panel;
-        private Queue<string> sentences;            // Keep track of all lines in dialogue
+        public GameObject pause;
+        private Queue<string> sentences; // Keep track of all lines in dialogue
+        private PauseMenu _pauseMenu;
 
         // Start is called before the first frame update
         void Start()
@@ -17,6 +19,7 @@ namespace DialogueScripts
             textComponent.text = string.Empty;
             SetTextComponentActive(false);
             sentences = new Queue<string>();
+            _pauseMenu = pause.GetComponent<PauseMenu>();
         }
 
         void SetTextComponentActive(bool ifActive)
@@ -57,8 +60,10 @@ namespace DialogueScripts
         }
 
         // Update is called once per frame
+        // Fixed Update is not called during pause
         void Update()
         {
+            if (_pauseMenu.IsPaused) return;
             if (Input.GetKeyDown(KeyCode.C))
             {
                 DisplayNextSentence();
