@@ -2,6 +2,8 @@
 using InteractionScripts;
 using UnityEngine;
 using UnityEngine.Assertions;
+using DialogueScripts;
+
 #if ENABLE_INPUT_SYSTEM && STARTER_ASSETS_PACKAGES_CHECKED
 using UnityEngine.InputSystem;
 #endif
@@ -16,11 +18,11 @@ namespace StarterAssets
 	{
 		[Header("Player")]
 		[Tooltip("Move speed of the character in m/s")]
-		public float MoveSpeed = 4.0f;
+		public float MoveSpeed = 1.4f;
 		[Tooltip("Sprint speed of the character in m/s")]
-		public float SprintSpeed = 6.0f;
+		public float SprintSpeed = 3.0f;
 		[Tooltip("Rotation speed of the character")]
-		public float RotationSpeed = 1.0f;
+		public float RotationSpeed = 0.8f;
 		[Tooltip("Acceleration and deceleration")]
 		public float SpeedChangeRate = 10.0f;
 
@@ -125,20 +127,35 @@ namespace StarterAssets
 		}
 
 		private void Update()
+<<<<<<< HEAD
+		{
+            JumpAndGravity();
+=======
 		{
 			PauseCheck();
 			if (Time.timeScale == 0) return;
 			
 			JumpAndGravity();
+>>>>>>> ee087b70c75f06568e0d78139a8422cc77901918
 			GroundedCheck();
 			Move();
 		}
 
 		private void LateUpdate()
 		{
+<<<<<<< HEAD
+            CameraRotation();
+            // Ciel: If there is an active dialogue return without updating interaction input
+            if (DialogueManager.isActive == true)
+            {
+                return;
+            }
+            UpdateInteraction();
+=======
 			if (Time.timeScale == 0) return;
 			CameraRotation();
 			UpdateInteraction();
+>>>>>>> ee087b70c75f06568e0d78139a8422cc77901918
 			InteractionInput();
 		}
 

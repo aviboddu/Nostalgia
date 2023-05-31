@@ -9,9 +9,14 @@ namespace DialogueScripts
     {
         public TextMeshProUGUI textComponent;
         public GameObject panel;
+<<<<<<< HEAD
+        private Queue<string> sentences;            // Keep track of all lines in dialogue
+        public static bool isActive;                // Track if any dialogue active
+=======
         public GameObject pause;
         private Queue<string> sentences; // Keep track of all lines in dialogue
         private PauseMenu _pauseMenu;
+>>>>>>> ee087b70c75f06568e0d78139a8422cc77901918
 
         // Start is called before the first frame update
         void Start()
@@ -32,6 +37,7 @@ namespace DialogueScripts
         {
             SetTextComponentActive(true);
             sentences.Clear();
+            isActive = true;
             foreach (string sentence in dialogue.sentences)
             {
                 sentences.Enqueue(sentence);
@@ -48,13 +54,15 @@ namespace DialogueScripts
                 return;
             }
             string sentence = sentences.Dequeue();
-            int continueFontSize = (int)(textComponent.fontSize * 0.8f);
-            string continueText = $"<size={continueFontSize}><color=#FF0000>[press C to continue]</color></size>";     // #FF0000 is red
-            textComponent.text = sentence + "\n" + continueText;
+            int advanceFontSize = (int)(textComponent.fontSize * 0.8f);
+            string continueText = $"<size={advanceFontSize}><align=center><color=#FF0000>[press C to continue]</color></size>";     // #FF0000 is red
+            string endText = $"<size={advanceFontSize}><align=center><color=#0000FF>[press E to end]</color></size>";               // #0000FF is blue
+            textComponent.text = sentence + "\n" + continueText + "\n" + endText;
         }
 
         void EndDialogue()
         {
+            isActive = false;
             Debug.Log("End of Lines.");
             SetTextComponentActive(false);
         }
@@ -63,10 +71,18 @@ namespace DialogueScripts
         // Fixed Update is not called during pause
         void Update()
         {
+<<<<<<< HEAD
+            if (Input.GetKeyDown(KeyCode.C))      // Ciel: Press "C" to adavance dialogue
+=======
             if (_pauseMenu.IsPaused) return;
             if (Input.GetKeyDown(KeyCode.C))
+>>>>>>> ee087b70c75f06568e0d78139a8422cc77901918
             {
                 DisplayNextSentence();
+            }
+            else if (Input.GetKeyDown(KeyCode.E)) // Ciel: Press "E" to end dialogue
+            {
+                EndDialogue();
             }
         }
     }
