@@ -7,6 +7,6 @@ public class LoadGame : MonoBehaviour
     {
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
-        SceneManager.LoadScene("Playground", LoadSceneMode.Single);
+        SceneManager.LoadScene("Playground", LoadSceneMode.Single); // This is necessary so we don't have two main cameras, which messes up the interaction script
     }
 }
