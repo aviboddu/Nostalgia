@@ -1,6 +1,8 @@
 ﻿using InteractionScripts;
 using UnityEngine;
 using UnityEngine.Assertions;
+using DialogueScripts;
+
 #if ENABLE_INPUT_SYSTEM && STARTER_ASSETS_PACKAGES_CHECKED
 using UnityEngine.InputSystem;
 #endif
@@ -119,15 +121,20 @@ namespace StarterAssets
 
 		private void Update()
 		{
-			JumpAndGravity();
+            JumpAndGravity();
 			GroundedCheck();
 			Move();
 		}
 
 		private void LateUpdate()
 		{
-			CameraRotation();
-			UpdateInteraction();
+            CameraRotation();
+            // Ciel: If there is an active dialogue return without updating interaction input
+            if (DialogueManager.isActive == true)
+            {
+                return;
+            }
+            UpdateInteraction();
 			InteractionInput();
 		}
 

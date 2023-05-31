@@ -10,6 +10,7 @@ namespace DialogueScripts
         public TextMeshProUGUI textComponent;
         public GameObject panel;
         private Queue<string> sentences;            // Keep track of all lines in dialogue
+        public static bool isActive;                // Track if any dialogue active
 
         // Start is called before the first frame update
         void Start()
@@ -29,6 +30,7 @@ namespace DialogueScripts
         {
             SetTextComponentActive(true);
             sentences.Clear();
+            isActive = true;
             foreach (string sentence in dialogue.sentences)
             {
                 sentences.Enqueue(sentence);
@@ -45,13 +47,15 @@ namespace DialogueScripts
                 return;
             }
             string sentence = sentences.Dequeue();
-            int continueFontSize = (int)(textComponent.fontSize * 0.8f);
-            string continueText = $"<size={continueFontSize}><color=#FF0000>[press C to continue]</color></size>";     // #FF0000 is red
-            textComponent.text = sentence + "\n" + continueText;
+            int advanceFontSize = (int)(textComponent.fontSize * 0.8f);
+            string continueText = $"<size={advanceFontSize}><align=center><color=#FF0000>[press C to continue]</color></size>";     // #FF0000 is red
+            string endText = $"<size={advanceFontSize}><align=center><color=#0000FF>[press E to end]</color></size>";               // #0000FF is blue
+            textComponent.text = sentence + "\n" + continueText + "\n" + endText;
         }
 
         void EndDialogue()
         {
+            isActive = false;
             Debug.Log("End of Lines.");
             SetTextComponentActive(false);
         }
@@ -59,9 +63,13 @@ namespace DialogueScripts
         // Update is called once per frame
         void Update()
         {
-            if (Input.GetKeyDown(KeyCode.C))
+            if (Input.GetKeyDown(KeyCode.C))      // Ciel: Press "C" to adavance dialogue
             {
                 DisplayNextSentence();
+            }
+            else if (Input.GetKeyDown(KeyCode.E)) // Ciel: Press "E" to end dialogue
+            {
+                EndDialogue();
             }
         }
     }
