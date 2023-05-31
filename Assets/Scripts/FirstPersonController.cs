@@ -126,36 +126,21 @@ namespace StarterAssets
 			_fallTimeoutDelta = FallTimeout;
 		}
 
-		private void Update()
-<<<<<<< HEAD
-		{
-            JumpAndGravity();
-=======
-		{
+		private void Update(){
 			PauseCheck();
-			if (Time.timeScale == 0) return;
-			
+			if (_pauseMenu.IsPaused) return;
 			JumpAndGravity();
->>>>>>> ee087b70c75f06568e0d78139a8422cc77901918
 			GroundedCheck();
 			Move();
 		}
 
 		private void LateUpdate()
 		{
-<<<<<<< HEAD
-            CameraRotation();
+			if (_pauseMenu.IsPaused) return;
             // Ciel: If there is an active dialogue return without updating interaction input
-            if (DialogueManager.isActive == true)
-            {
-                return;
-            }
-            UpdateInteraction();
-=======
-			if (Time.timeScale == 0) return;
-			CameraRotation();
+            if (DialogueManager.isActive) return;
+            CameraRotation();
 			UpdateInteraction();
->>>>>>> ee087b70c75f06568e0d78139a8422cc77901918
 			InteractionInput();
 		}
 

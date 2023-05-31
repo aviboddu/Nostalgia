@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -16,6 +17,12 @@ namespace InteractionScripts
     {
         public Dialogue dialogue;
         private bool _canInteract = true;
+        private DialogueManager _dialogueManager;
+
+        private void Start()
+        {
+            _dialogueManager = FindObjectOfType<DialogueManager>(); // Moved it here for performance reasons
+        }
 
         public override bool CanInteract()
         {
@@ -46,7 +53,7 @@ namespace InteractionScripts
 
         public void TriggerDialogue()
         {
-            FindObjectOfType<DialogueManager>().StartDialogue(dialogue);
+            _dialogueManager.StartDialogue(dialogue);
         }
     }
 }

@@ -5,6 +5,8 @@ public class LoadGame : MonoBehaviour
 {
     private void OnEnable()
     {
-        SceneManager.LoadScene("Playground", LoadSceneMode.Additive);        
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
+        SceneManager.LoadScene("Playground", LoadSceneMode.Single);
     }
 }
