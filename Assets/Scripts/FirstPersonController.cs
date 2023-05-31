@@ -1,4 +1,5 @@
-﻿using InteractionScripts;
+﻿using System.Collections;
+using InteractionScripts;
 using UnityEngine;
 using UnityEngine.Assertions;
 using DialogueScripts;
@@ -60,6 +61,11 @@ namespace StarterAssets
 		public float InteractionMaxDistance = 7.5f;
 		private Interactable currentInteractable;
 
+		[Header("Pause Menu")] 
+		[Tooltip("Place the pause menu here")]
+		public GameObject pause;
+		private PauseMenu _pauseMenu;
+
 		// cinemachine
 		private float _cinemachineTargetPitch;
 
@@ -113,6 +119,7 @@ namespace StarterAssets
 #else
 			Debug.LogError( "Starter Assets package is missing dependencies. Please use Tools/Starter Assets/Reinstall Dependencies to fix it");
 #endif
+			_pauseMenu = pause.GetComponent<PauseMenu>();
 
 			// reset our timeouts on start
 			_jumpTimeoutDelta = JumpTimeout;
@@ -120,14 +127,23 @@ namespace StarterAssets
 		}
 
 		private void Update()
+<<<<<<< HEAD
 		{
             JumpAndGravity();
+=======
+		{
+			PauseCheck();
+			if (Time.timeScale == 0) return;
+			
+			JumpAndGravity();
+>>>>>>> ee087b70c75f06568e0d78139a8422cc77901918
 			GroundedCheck();
 			Move();
 		}
 
 		private void LateUpdate()
 		{
+<<<<<<< HEAD
             CameraRotation();
             // Ciel: If there is an active dialogue return without updating interaction input
             if (DialogueManager.isActive == true)
@@ -135,6 +151,11 @@ namespace StarterAssets
                 return;
             }
             UpdateInteraction();
+=======
+			if (Time.timeScale == 0) return;
+			CameraRotation();
+			UpdateInteraction();
+>>>>>>> ee087b70c75f06568e0d78139a8422cc77901918
 			InteractionInput();
 		}
 
@@ -183,6 +204,13 @@ namespace StarterAssets
 			}
 		}
 
+		private void PauseCheck()
+		{
+			if (_pauseMenu.IsPaused) return;
+			if (!_input.pause) return;
+			_pauseMenu.OnPause();
+		}
+
 		private void GroundedCheck()
 		{
 			// set sphere position, with offset
@@ -197,7 +225,7 @@ namespace StarterAssets
 			{
 				//Don't multiply mouse input by Time.deltaTime
 				float deltaTimeMultiplier = IsCurrentDeviceMouse ? 1.0f : Time.deltaTime;
-				
+
 				_cinemachineTargetPitch += _input.look.y * RotationSpeed * deltaTimeMultiplier;
 				_rotationVelocity = _input.look.x * RotationSpeed * deltaTimeMultiplier;
 
