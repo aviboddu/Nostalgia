@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028334, g: 0.22571328, b: 0.3069217, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -634,8 +634,9 @@ MonoBehaviour:
   m_text: "I tried my best to be a good parent\u2026 This house\u2026 it\u2019s yours
     to inherit."
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 526c6c5757e86354a82f00dc5dca5d0d, type: 2}
+  m_sharedMaterial: {fileID: 6717966520919099770, guid: 526c6c5757e86354a82f00dc5dca5d0d,
+    type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -789,8 +790,9 @@ MonoBehaviour:
       m_Calls: []
   m_text: Martin...
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 526c6c5757e86354a82f00dc5dca5d0d, type: 2}
+  m_sharedMaterial: {fileID: 6717966520919099770, guid: 526c6c5757e86354a82f00dc5dca5d0d,
+    type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -905,8 +907,9 @@ MonoBehaviour:
   m_text: "You\u2019ll find the key to your locked childhood room with this letter.
     Please clean the room\u2026 and take care of the house."
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 526c6c5757e86354a82f00dc5dca5d0d, type: 2}
+  m_sharedMaterial: {fileID: 6717966520919099770, guid: 526c6c5757e86354a82f00dc5dca5d0d,
+    type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
