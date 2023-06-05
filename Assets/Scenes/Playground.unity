@@ -1578,6 +1578,54 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 80009c74748d82047b88c3f400e09c3d, type: 3}
+--- !u!1 &351442329
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 351442330}
+  - component: {fileID: 351442331}
+  m_Layer: 0
+  m_Name: hairdryer_traumaEffect
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &351442330
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 351442329}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 932435959}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &351442331
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 351442329}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fcfb3a893e3b5ea4e88d6863a7b40214, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lightIntensity: 0.5
+  fadeTime: 0.5
+  desiredTraumaLevel: 1
+  traumaManager: {fileID: 1478328035}
 --- !u!1001 &354756118
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2302,6 +2350,7 @@ Transform:
   - {fileID: 335255842}
   - {fileID: 671369863}
   - {fileID: 1690483053}
+  - {fileID: 1635022109}
   m_Father: {fileID: 1035442882}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
@@ -2400,6 +2449,7 @@ MonoBehaviour:
   - {fileID: 335255843}
   - {fileID: 671369864}
   - {fileID: 1690483054}
+  - {fileID: 1635022110}
 --- !u!1 &671369862
 GameObject:
   m_ObjectHideFlags: 0
@@ -2546,6 +2596,7 @@ Transform:
   - {fileID: 1643608130}
   - {fileID: 847347850}
   - {fileID: 52382724}
+  - {fileID: 853516018}
   m_Father: {fileID: 1035442882}
   m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -3133,6 +3184,54 @@ MonoBehaviour:
       there\u2026"
     - ...
     - "What about these items ? What do I do with them\u2026"
+--- !u!1 &853516017
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 853516018}
+  - component: {fileID: 853516019}
+  m_Layer: 0
+  m_Name: hairdryer_after_traumaEffect
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &853516018
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 853516017}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 711215212}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &853516019
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 853516017}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fcfb3a893e3b5ea4e88d6863a7b40214, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lightIntensity: 0.5
+  fadeTime: 0.5
+  desiredTraumaLevel: 0.1
+  traumaManager: {fileID: 1478328035}
 --- !u!1 &874605735
 GameObject:
   m_ObjectHideFlags: 0
@@ -3940,6 +4039,7 @@ Transform:
   - {fileID: 1977823130}
   - {fileID: 1849767377}
   - {fileID: 822437465}
+  - {fileID: 351442330}
   m_Father: {fileID: 1035442882}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -4038,6 +4138,7 @@ MonoBehaviour:
   - {fileID: 1977823131}
   - {fileID: 1849767378}
   - {fileID: 822437466}
+  - {fileID: 351442331}
 --- !u!1 &938350499
 GameObject:
   m_ObjectHideFlags: 0
@@ -6831,6 +6932,54 @@ MonoBehaviour:
   lightIntensity: 0.5
   fadeTime: 0.5
   objectToDeactivate: {fileID: 1111921182}
+--- !u!1 &1635022108
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1635022109}
+  - component: {fileID: 1635022110}
+  m_Layer: 0
+  m_Name: bat_traumaEffect
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1635022109
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1635022108}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 583366450}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1635022110
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1635022108}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fcfb3a893e3b5ea4e88d6863a7b40214, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lightIntensity: 0.5
+  fadeTime: 0.5
+  desiredTraumaLevel: 0.5
+  traumaManager: {fileID: 1478328035}
 --- !u!1 &1643608129
 GameObject:
   m_ObjectHideFlags: 0
@@ -9958,6 +10107,11 @@ PrefabInstance:
     - target: {fileID: 9005220659476430823, guid: 2d3a85ecde41a8246a79669975912b74,
         type: 3}
       propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9089933072771159052, guid: 2d3a85ecde41a8246a79669975912b74,
+        type: 3}
+      propertyPath: m_RenderPostProcessing
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
