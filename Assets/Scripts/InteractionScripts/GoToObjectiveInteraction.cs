@@ -26,8 +26,10 @@ namespace InteractionScripts
 
         private void AllowInteract(int newObjectiveNumber)
         {
-            if (newObjectiveNumber >= objectiveNumberToGoTo - 1)
+            if (newObjectiveNumber >= objectiveNumberToGoTo - 1) {
                 _canInteract = true;
+                ObjectiveManager.Manager.ObjectiveChange -= AllowInteract;
+            }
         }
     }
 }
