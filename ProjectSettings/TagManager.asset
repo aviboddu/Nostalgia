@@ -12,6 +12,7 @@ TagManager:
   - FamilyDrawing
   - HairDryer
   - Key
+  - Universal Render Pipeline
   layers:
   - Default
   - TransparentFX
