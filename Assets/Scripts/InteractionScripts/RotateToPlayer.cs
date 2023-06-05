@@ -5,6 +5,7 @@ using UnityEngine;
 public class RotateToPlayer : MonoBehaviour
 {
     private Transform MainCamera;
+    private bool isReverse = true;
 
     // Use this for initialization
     void Start()
@@ -13,10 +14,13 @@ public class RotateToPlayer : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
-    {
-        // Rotate the camera every frame so it keeps looking at the target
-        transform.LookAt(new Vector3(MainCamera.position.x, transform.position.y, MainCamera.position.z));
+    void Update() {
+        if (Camera.main)
+        {
+            var cameraTransform = Camera.main.gameObject.transform;
+            transform.LookAt(cameraTransform);
+            if (isReverse) transform.forward *= -1;
+        }
     }
 
 }
