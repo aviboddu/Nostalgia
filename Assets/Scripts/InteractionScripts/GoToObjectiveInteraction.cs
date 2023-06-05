@@ -6,11 +6,14 @@ namespace InteractionScripts
     public class GoToObjectiveInteraction : Interactable
     {
         public int objectiveNumberToGoTo;
-        private bool _canInteract = false;
+        private bool _canInteract;
 
         private void Start()
         {
-            ObjectiveManager.Manager.ObjectiveChange += AllowInteract;
+            if (objectiveNumberToGoTo <= 1)
+                _canInteract = true;
+            else
+                ObjectiveManager.Manager.ObjectiveChange += AllowInteract;
         }
 
         public override bool CanInteract()

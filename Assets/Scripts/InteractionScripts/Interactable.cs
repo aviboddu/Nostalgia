@@ -49,7 +49,8 @@ namespace InteractionScripts
          if (_inFocus)
          {
             _inFocus = false;
-            StartCoroutine(FadeLight(initialIntensity, 0, fadeTime));
+            if (gameObject.activeSelf)
+               StartCoroutine(FadeLight(initialIntensity, 0, fadeTime));
          }
       }
 
