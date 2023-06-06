@@ -13,6 +13,7 @@ TagManager:
   - HairDryer
   - Key
   - Universal Render Pipeline
+  - BathDoorInteract
   layers:
   - Default
   - TransparentFX
@@ -25,7 +26,7 @@ TagManager:
   - Character
   - Ground
   - Interactable
-  - 
+  - Interact
   - 
   - 
   - 
