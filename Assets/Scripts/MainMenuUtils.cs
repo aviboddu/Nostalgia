@@ -61,7 +61,7 @@ public class MainMenuUtils : MonoBehaviour
     public void onCloseSettings()
     {
         Settings.SetActive(false);
-        Title.SetActive(false);
+        Title.SetActive(true);
     }
 
     public void setResolution(int index)
