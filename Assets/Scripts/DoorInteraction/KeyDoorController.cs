@@ -15,8 +15,6 @@ namespace KeySystem
         [SerializeField] private int showUITime = 1;
         [SerializeField] private GameObject showDoorLockedUI = null;
 
-        [SerializeField] private KeyInventory _keyinventory = null;
-
         [SerializeField] private int waitTimer = 1;
         [SerializeField] private bool pauseInteraction = false;
 
@@ -34,7 +32,7 @@ namespace KeySystem
 
         public void PlayAnimation()
         {
-            if (_keyinventory.hasKey)
+            if (ObjectiveManager.Manager.GetCurrentObjectiveNumber() >= 6)
             {
                 if (!doorOpen && !pauseInteraction)
                 {
