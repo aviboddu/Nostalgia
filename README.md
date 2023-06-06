@@ -18,3 +18,4 @@ The player will interact with the drawings in the world and piece together the h
 
 ## Video Demo
 [![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/NBkatwz0iDI/0.jpg)](https://youtu.be/NBkatwz0iDI)
+https://youtu.be/NBkatwz0iDI
