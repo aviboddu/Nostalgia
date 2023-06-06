@@ -12,6 +12,7 @@ public class MainMenuUtils : MonoBehaviour
     public GameObject DisplayMode;
     public GameObject Quality;
     public GameObject Volume;
+    public GameObject Title;
 
     private TMP_Dropdown _resolution;
     private TMP_Dropdown _displayMode;
@@ -54,11 +55,13 @@ public class MainMenuUtils : MonoBehaviour
     public void onOpenSettings()
     {
         Settings.SetActive(true);
+        Title.SetActive(false);
     }
 
     public void onCloseSettings()
     {
         Settings.SetActive(false);
+        Title.SetActive(false);
     }
 
     public void setResolution(int index)
